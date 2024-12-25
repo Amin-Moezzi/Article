@@ -26,8 +26,8 @@ others, with authentication mechanisms for managing their own content.
 
 1. Clone this repository to your local machine:
    ```
-   git clone https://github.com/Amin-Moezzi/django-article.git
-   cd django-article
+   git clone https://github.com/Amin-Moezzi/Article.git
+   cd Article
 
 ## Installation
 
