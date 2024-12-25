@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Article - Landing Page</title>
+    <style>
+        body {
+            background-color: #eef2f6;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        .navbar {
+            background-color: #007bff;
+            /* Navbar background color */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white;
+            /* Navbar text color */
+        }
+
+        .nav-link:hover {
+            color: #ffc107;
+            /* Yellow on hover */
+        }
+
+        .signup-button {
+            background: linear-gradient(90deg, #43cea2, #37d1d9);
+            color: #000204;
+            border: none;
+            /* Remove border */
+            border-radius: 15px;
+            /* Rounded corners */
+            padding: 5px 15px;
+            /* Padding for the button */
+            font-size: 1em;
+            /* Font size */
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* Smooth scaling and shadow */
+        }
+
+        .signup-button:hover {
+            transform: scale(1.05);
+            /* Scale up on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Shadow effect on hover */
+        }
+
+        .signin-button {
+            background: linear-gradient(90deg, #f1559ef4, #dc6a97);
+
+            /* Gradient background for button */
+            color: rgb(12, 10, 10);
+            border: none;
+            /* Remove border */
+            border-radius: 15px;
+            /* Rounded corners */
+            padding: 5px 15px;
+            /* Padding for the button */
+            font-size: 1em;
+            /* Font size */
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* Smooth scaling and shadow */
+        }
+
+        .signin-button:hover {
+            transform: scale(1.05);
+            /* Scale up on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Shadow effect on hover */
+        }
+
+        .hero {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            opacity: 0;
+            /* Start invisible */
+            transform: translateY(-50px);
+            /* Start positioned up */
+            animation: fadeIn 1s forwards;
+            /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                /* Fully visible */
+                transform: translateY(0);
+                /* Back to normal position */
+            }
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-bg {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            /* Smooth transitions */
+        }
+
+        .section-bg:hover {
+            background-color: #f8f9fa;
+            /* Light gray background on hover */
+            transform: scale(1.05);
+            /* Scale up on hover */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            /* Deeper shadow on hover */
+        }
+
+        /* Section Specific Styles */
+        #features {
+            background-color: #e9ecef;
+            /* Light gray background for features */
+        }
+
+        #about {
+            background-color: #f8f9fa;
+            /* Slightly darker gray for about */
+        }
+
+        #services {
+            background-color: #e9ecef;
+            /* Light gray background for services */
+        }
+
+        #contact {
+            background-color: #f8f9fa;
+            /* Slightly darker gray for contact */
+        }
+
+        #get-started {
+            background-color: #007bff;
+            /* Blue background for get started */
+            color: white;
+            /* White text for contrast */
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            /* Gradient background */
+            color: white;
+            border: none;
+            /* Remove border */
+            border-radius: 30px;
+            /* Rounded corners */
+            padding: 12px 30px;
+            /* Padding for a bigger button */
+            font-size: 1.2em;
+            /* Larger font size */
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* Smooth scaling and shadow */
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            /* Scale up on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Shadow effect on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Article</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'article_list' %}">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#get-started" class="signup-button me-2">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="signin-button me-2">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-4">Welcome to Article {{username}}</h1>
+            <p class="lead">Create, edit, and share your stories with the world.</p>
+            <a href="{% url 'article_list' %}" class="btn btn-light btn-lg">Start Writing</a>
+        </div>
+    </header>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="section-bg text-center">
+                        <h3>Easy Article Creation</h3>
+                        <p>Intuitive editor for crafting your articles effortlessly.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg text-center">
+                        <h3>Update and Edit</h3>
+                        <p>Modify your articles anytime with a simple interface.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg text-center">
+                        <h3>Share with Friends</h3>
+                        <p>Share your articles with a click of a button.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section text-center">
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="mb-4">We are a community of writers and readers who love to share ideas and stories.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Our Mission</h3>
+                        <p>To empower individuals to express themselves through writing.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Our Vision</h3>
+                        <p>To create a platform where every voice is heard.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Our Values</h3>
+                        <p>Inclusivity, creativity, and support for all writers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section text-center">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="mb-4">We provide tools to help you create, edit, and publish your articles.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Writing Tools</h3>
+                        <p>Access to a variety of writing tools to enhance your articles.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Publishing Options</h3>
+                        <p>Multiple channels to publish your articles and reach your audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-bg">
+                        <h3>Community Support</h3>
+                        <p>Join our community for feedback and support from fellow writers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section text-center">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p class="mb-4">Have questions? Reach out to us for support and inquiries.</p>
+            <a href="mailto:info@example.com" class="cta-button">Email Us</a>
+        </div>
+    </section>
+
+    <section id="get-started" class="section text-center">
+        <div class="container">
+            <h2>Get Started Today!</h2>
+            <p class="mb-4">Join our community and start sharing your articles.</p>
+            <a href="{% url 'signup' %}" class="cta-button btn-lg">Sign Up Now!</a>
+        </div>
+    </section>
+
+    <footer class="text-center mt-5 py-3 bg-light">
+        <p class="mb-0">Developed by Amin Moezzi</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<!--
+  The frontend of this website was enhanced with the assistance of AI tools like
+    ChatGPT & POE.com. While the core design and functionality were created by me,
+     these tools helped refine and improve the user experience, making it more 
+     visually appealing and user-friendly.
+-->

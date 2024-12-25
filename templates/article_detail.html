@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .article-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .article-title {
+        font-size: 2rem;
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .article-meta {
+        font-size: 0.9rem;
+        color: #6c757d;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .article-body {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #343a40;
+    }
+    .btn-back {
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0;
+        background-color: #28a745;
+        color: #ffffff;
+        font-size: 1rem;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+    .btn-back:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="article-container">
+        <h3 class="article-title">{{ object.title }}</h3>
+        <p class="article-meta">by {{ object.author }} | {{ object.date }}</p>
+        <p class="article-body">{{ object.body }}</p>
+        <a href="{% url 'article_list' %}" class="btn btn-back">Back to Articles</a>
+    </div>
+</div>
+{% endblock content %}
+
+<!--
+  The frontend of this website was enhanced with the assistance of AI tools like
+    ChatGPT & POE.com. While the core design and functionality were created by me,
+     these tools helped refine and improve the user experience, making it more 
+     visually appealing and user-friendly.
+-->

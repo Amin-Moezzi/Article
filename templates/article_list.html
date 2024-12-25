@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .article-card {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-left: 5px solid;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    .article-card:nth-child(odd) {
+        background-color: #f8f9fa;
+        border-color: #007bff;
+    }
+    .article-card:nth-child(even) {
+        background-color: #ffffff;
+        border-color: #28a745;
+    }
+    .article-title {
+        font-weight: bold;
+        color: #343a40;
+    }
+    .article-actions a {
+        margin-right: 10px;
+    }
+    .article-date {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for article in article_list %}
+        <div class="col-md-6">
+            <div class="card article-card">
+                <div class="card-body">
+                    <h3 class="card-title article-title">{{ article.title }}</h3>
+                    <p class="card-text">{{ article.body }}</p>
+                    <h6 class="article-date">{{ article.author }} | {{ article.date }}</h6>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+
+<!--
+  The frontend of this website was enhanced with the assistance of AI tools like
+    ChatGPT & POE.com. While the core design and functionality were created by me,
+     these tools helped refine and improve the user experience, making it more 
+     visually appealing and user-friendly.
+-->

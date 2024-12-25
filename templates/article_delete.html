@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .delete-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .delete-container h1 {
+        color: #dc3545;
+        margin-bottom: 20px;
+    }
+    .delete-container p {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        color: #343a40;
+    }
+    .btn-confirm {
+        background-color: #dc3545;
+        color: #ffffff;
+        font-size: 1rem;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-confirm:hover {
+        background-color: #a71d2a;
+    }
+    .btn-cancel {
+        background-color: #6c757d;
+        color: #ffffff;
+        font-size: 1rem;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-left: 10px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-cancel:hover {
+        background-color: #5a6268;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="delete-container">
+        <h1>Delete Confirmation</h1>
+        <form action="" method="post">{% csrf_token %}
+            <p>Are you sure you want to delete <strong>{{ article.title }}</strong>?</p>
+            <button type="submit" class="btn btn-confirm">yes</button>
+            <a href="{% url 'article_list' %}" class="btn btn-cancel">No</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!--
+  The frontend of this website was enhanced with the assistance of AI tools like
+    ChatGPT & POE.com. While the core design and functionality were created by me,
+     these tools helped refine and improve the user experience, making it more 
+     visually appealing and user-friendly.
+-->
